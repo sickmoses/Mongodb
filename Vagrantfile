@@ -11,10 +11,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     standalone.vm.hostname = "standalone"
     standalone.vm.provision "shell", path: "provision.sh"
 
-    #standalone.vm.provision :puppet do |puppet|
-    #  puppet.module_path = "modules"
-    #  puppet.manifests_path = "manifests"
-    #  puppet.manifest_file = "standalone.pp"
-    #end
+    standalone.vm.provision :puppet do |puppet|
+      puppet.module_path = "modules"
+      puppet.manifests_path = "manifests"
+      puppet.manifest_file = "default.pp"
+    end
   end
 end
